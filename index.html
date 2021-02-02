@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
+  <script src="/src/js/myscript.js" defer></script>
 </head>
 
 <body>
@@ -272,7 +273,8 @@
             </div>
             <!-- contact form -->
             <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
-              <form class="shake" role="form" method="" id="contactForm" name="contact-form" data-toggle="validator">
+              <form class="shake" action="https://formspree.io/f/xknperqd" role="form" method="POST" id="contactForm"
+                name="contact-form" data-toggle="validator">
                 <!-- Name -->
                 <div class="form-group label-floating">
                   <label class="control-label" for="name">Name</label>
@@ -308,6 +310,7 @@
                   <div id="msgSubmit" class="h3 text-center hidden"></div>
                   <div class="clearfix"></div>
                 </div>
+                <div id="my-form-status"></div>
               </form>
             </div>
           </div>
@@ -332,5 +335,7 @@
 <script type="text/javascript" src="js/mdb.min.js"></script>
 <!-- Custom scripts -->
 <script type="text/javascript"></script>
+<!-- sending email-->
+
 
 </html>
