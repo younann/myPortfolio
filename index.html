@@ -178,7 +178,7 @@
                   including add check and delete tasks in the list,<br>
                   using react hooks.<br /><br /><br /><br />
                 </p>
-                <a href="https://todolistlist.herokuapp.com/" class="btn btn-primary">See project</a>
+                <a href="https://todolistlist.herokuapp.com/" class="btn btn-primary" traget="_blank">See project</a>
               </div>
             </div>
           </div>
@@ -193,7 +193,7 @@
                   Searching a realtion between students scores in exam and variables about them.
                   using - R -<br /><br /><br /><br /><br />
                 </p>
-                <a href="https://github.com/younann/bigdata/" class="btn btn-primary">See project</a>
+                <a href="https://github.com/younann/bigdata/" class="btn btn-primary" target="_blank">See project</a>
               </div>
             </div>
           </div>
@@ -207,7 +207,7 @@
                   fetching data from api server<br />
                   bootstrap and react router used in this project<br /><br /><br />
                 </p>
-                <a href="https://github.com/younann/reactapp1" class="btn btn-primary">See project</a>
+                <a href="https://github.com/younann/reactapp1" class="btn btn-primary" target="_blank">See project</a>
               </div>
             </div>
           </div>
@@ -317,6 +317,11 @@
         </div>
       </section>
       <hr class="my-5" />
+      <div class="text-center" id="visits">
+        <p>This page was viewed</p>
+        <h1 id="count">0</h1>
+        <p>times</p>
+      </div>
     </div>
   </main>
   <footer class="bg-light text-center text-lg-start">
@@ -381,6 +386,18 @@
       }
     };
     xhr.send(data);
+  }
+
+  const countEl = document.getElementById('count');
+
+  updateVisitCount();
+
+  function updateVisitCount() {
+    fetch('https://api.countapi.xyz/hit/younan/portfolio/')
+      .then(res => res.json())
+      .then(res => {
+        countEl.innerHTML = res.value;
+      })
   }
 
 </script>
