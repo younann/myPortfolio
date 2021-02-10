@@ -317,10 +317,16 @@
         </div>
       </section>
       <hr class="my-5" />
-      <div class="text-center" id="visits">
-        <p>This page was viewed</p>
-        <h1 id="count">0</h1>
-        <p>times</p>
+      <div class="container flex-column">
+        <div class="text-center" id="visits">
+          <p>This page was viewed</p>
+          <h1 id="count">0</h1>
+          <p>times</p>
+        </div>
+        <div class="text-center">
+          <p id="country-viwer">You are visting from : </p><br />
+          <p id="viwer-ip">Your IP: </p>
+        </div>
       </div>
     </div>
   </main>
@@ -399,6 +405,22 @@
         countEl.innerHTML = res.value;
       })
   }
+
+  function locationViewer() {
+    const countryViwer = document.getElementById('country-viwer')
+    const ipViwer = document.getElementById('viwer-ip')
+    fetch('http://api.ipstack.com/check?access_key=938e33c064b802153a5d3527f445f0bd&format=1')
+      .then(response => response.json())
+      .then(data => {
+        const texttoadd = document.createTextNode(data.country_name);
+        const iptoadd = document.createTextNode(data.ip)
+        const iptype = document.createTextNode('   Your IP type is:' + data.type)
+        countryViwer.appendChild(texttoadd)
+        ipViwer.appendChild(iptoadd)
+        ipViwer.appendChild(iptype)
+      })
+  }
+  locationViewer();
 
 </script>
 
